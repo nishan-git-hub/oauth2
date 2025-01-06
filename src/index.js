@@ -1,6 +1,8 @@
 import express from "express";
 import session from "express-session";
+
 import passport from "./oauth2/auth.js";
+import { ENV_VARS } from "./oauth2/envVars.js";
 
 const app = express();
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
@@ -59,7 +61,7 @@ app.get("/logout", (req, res) => {
   );
 });
 
-const PORT = 5000;
+const { PORT } = ENV_VARS;
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
 });

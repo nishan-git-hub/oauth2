@@ -16,9 +16,6 @@ passport.use(
     },
     function (request, accessToken, refreshToken, profile, done) {
       return done(null, profile);
-      //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //     return done(err, user);
-      //   });
     }
   )
 );
